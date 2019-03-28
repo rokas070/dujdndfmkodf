@@ -1,16 +1,2 @@
-# dujdndfmkodf
+# v0.1
 ---
-
-## Pavadinimas
-
-fdgggggggggggggggggggg
-gdfffffffffffff
-
-```cpp
-int main(){
- cout<<"sveiki!"<<endl;
- }```
- 
- * sddf
- * sdfdf
- * dfrrr
