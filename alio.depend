@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1553801339 source:c:\users\rokas\desktop\gg\alio\main.cpp
+	<iostream>
+	<iomanip>
+	<string>
+
