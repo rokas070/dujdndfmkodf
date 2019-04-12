@@ -1,85 +1,71 @@
 #include <iostream>
-#include <iomanip>
+#include <vector>
 #include <string>
 #include <algorithm>
 
-using namespace std;
+using std::cout;
+using std::cin;
+using std::endl;
+using std::vector;
+using std::string;
 
-struct eil{
+struct irasas{
     string var, pav;
-    double egz, nds=0, rez, nd[100];
-}eil[100];
+    int egz;
+    vector <int> paz;
+    double vid, med, rez;
+    void Vid();
+    void Med();
+    void Rez();
+};
 
-int main () {
-    int w=0, i=0, q=1, r;
-    char med;
-    cout<<"norite apskaiciuoti vidurki ar mediana? (vid/med): ";
-    cin>>med;
-    if (med == 'vid')
-    {
-        r=0;
-    }
-    else if (med == 'med')
-    {
-        r=1;
-    }
-    while( q==1)
-    {
-        char tn;
-        cout << "Ar norite ivesti nauja mokini i sistema? (t/n): ";
-        cin >> tn;
-        if (tn == 'n')
-        {
-            q=0;
+int main()
+{
+    vector <irasas> duomenubaze;
+    irasas temp; int temp_nd; char pakl;
+    do{
+        cout<<"Iveskite varda: "; cin>>temp.var;
+        cout<<"Iveskite pavarde: "; cin>>temp.pav;
+        cout<<"Iveskite egzamino pazymi: "; cin>>temp.egz;
+        cout<<"iveskite pazymi: "<<endl; cin>>temp_nd;
+        temp.paz.clear();
+        while(temp_nd!=0){
+            if(temp_nd>0 && temp_nd<11) temp.paz.push_back(temp_nd);
+            else{cout<<"Netinkamas pazymys, bandykite is naujo: ";}
+            cin>>temp_nd;
         }
-        else if (tn =='t')
-        {
-            w++;
-            q=1;
-            double e,t;
-            cout << "Mokinio vardas: ";
-            cin >> eil[i].var;
+     temp.Vid(); temp.Med(); temp.Rez();
+     duomenubaze.push_back(temp);
+     cout<<"Ar norite ivesti kita? t/kitas kl. ";
+     cin>>pakl;
+     }while (pakl == 't');
 
-            cout << "Mokinio pavarde: ";
-            cin >> eil[i].pav;
-            cout<<"namu darbu skaicius: ";
-            cin>>e;
-            cout<<"namu darbu balai: ";
-            for(int j=0; j<e; j++)
-            {
-               cin>>eil[i].nd[j];
-               if (r==0)
-               {
-                   eil[i].nds=eil[i].nds+eil[i].nd[j];
-               }
-            }
-            sort(eil[i].nd[j]);
-            if (r==0)
-            {
-                eil[i].nds=eil[i].nds/e;
-            }
-            else if (r==1)
-            {
-                if(e%2==0)
-                {
-                    t=e/2;
-                    eil[i].nds=(eil[i].nd[t]+eil[i].nd[t++])/2;
-                }
-                else if(e%2!=0)
-                {
-                    t=(e+1)/2;
-                    eil[i].nds=eil[i].nd[t];
-                }
-            }
-            cout<<"egzamino balas: ";
-            cin>>eil[i].egz;
-            eil[i].rez=0.4*eil[i].nds+0.6*eil[i].egz;
-            i++;
-        }
-    }
-    cout<<setfill(' ')<<setw(12)<<left<<"Vardas"<<setw(13)<<left<<"Pavarde"<<right<<(r==0)? "Galutinis (Vid.)":"Galutinis (Med)"<<endl;
-    cout<<setfill('-')<<setw(42)<<'-'<<endl;
-    for (int n=0; n<w; n++)
-    cout<<setfill(' ')<<setw(12)<<left<<eil[n].var<<setw(25)<<left<<eil[n].pav<<right<<eil[n].rez<<setprecision(3)<<endl;
-  return 0;
+     for (irasas a: duomenubaze)
+     {
+         cout<<"Vardas: "<<a.var<<endl;
+         cout<<"Pavarde: "<<a.pav<<endl;
+         cout<<"Egzaminas: "<<a.egz<<endl;
+         for(int p: a.paz)
+            cout<<p<<" : ";
+         cout<<endl;
+         cout<<"Vid.: "<<a.vid<<endl;
+         cout<<"Med.: "<<a.med<<endl;
+         cout<<"Rez.: "<<a.rez<<endl;
+     }
+
+
 }
+
+    void irasas::Vid(){
+        vid=0;
+        for (int a : paz)
+            vid+=a;
+        vid=double(vid)/paz.size();
+    }
+    void irasas::Med(){
+        sort(paz.begin(), paz.end());
+       med=(paz.size()%2==0) ? (paz[paz.size()/2-1]+paz[paz.size()/2])/2 : paz[paz.size()/2];
+    }
+    void irasas::Rez(){
+        rez=0.4*vid+0.6*egz;
+    }
