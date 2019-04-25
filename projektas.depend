@@ -1,7 +1,8 @@
 # depslib dependency file v1.0
-1556218359 source:c:\users\rokas\desktop\projektas\projektas\main.cpp
+1556220553 source:c:\users\rokas\desktop\projektas\projektas\main.cpp
 	<iostream>
 	<vector>
 	<string>
 	<algorithm>
+	<iomanip>
 

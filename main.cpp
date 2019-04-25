@@ -46,21 +46,13 @@ int main()
      cout<<"Ar norite ivesti kita? (t/kitas kl.) ";
      cin>>pakl;
      }while (pakl == 't');
-     cout<<"Rezultatui skaiciuoti naudojama vidurkis ar mediana? (v/m) ";
-     char h;
-     cin>>h;
 
-     cout<<setfill(' ')<<setw(12)<<left<<"Vardas"<<setw(13)<<left<<"Pavarde"<<right<<"Galutinis (Vid.)/Galutinis (Med.)"<<endl;
-     cout<<setfill('-')<<setw(58)<<'-'<<endl;
+     cout<<setfill(' ')<<setw(12)<<left<<"Vardas"<<setw(13)<<left<<"Pavarde"<<right<<"Galutinis (Vid.)    Galutinis (Med.)"<<endl;
+     cout<<setfill('-')<<setw(62)<<'-'<<endl;
      for (irasas a: duomenubaze)
      {
-         if (h=='m')
-            cout<<setfill(' ')<<setw(12)<<left<<a.var<<setw(25)<<left<<a.pav<<right<<a.rez2<<setprecision(3)<<endl;
-         else
-         cout<<setfill(' ')<<setw(12)<<left<<a.var<<setw(25)<<left<<a.pav<<right<<a.rez1<<setprecision(3)<<endl;
+        cout<<setfill(' ')<<setw(12)<<left<<a.var<<setw(13)<<left<<a.pav<<setw(20)<<left<<a.rez1<<setprecision(3)<<right<<a.rez2<<setprecision(3)<<endl;
      }
-
-
 }
 
     void irasas::Vid(){
