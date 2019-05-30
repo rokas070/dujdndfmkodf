@@ -15,3 +15,15 @@
 	<fstream>
 	<sstream>
 
+1559243776 source:c:\users\rokas\desktop\dujdndfmkodf-0.2\main.cpp
+	"funk.h"
+
+1559243776 c:\users\rokas\desktop\dujdndfmkodf-0.2\funk.h
+	<iostream>
+	<vector>
+	<string>
+	<algorithm>
+	<iomanip>
+	<fstream>
+	<sstream>
+
